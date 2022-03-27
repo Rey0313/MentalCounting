@@ -35,6 +35,7 @@ public class CalculateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculate);
+        //Définition de la valeur des boutons
         Button button0 = findViewById(R.id.button_0);
         button0.setOnClickListener(view -> ajouterNombre(0));
         Button button1 = findViewById(R.id.button_1);
@@ -65,17 +66,20 @@ public class CalculateActivity extends AppCompatActivity {
         AfficherCalcul();
     }
 
+    //Permet de passer la valeur de l'utilisateur au négatif
     private void Negatif() {
         reponse*=(-1);
         EcrireReponse();
     }
 
+    //Supprime la valeur de l'utilisateur et affiche à nouveau le texte de départ : "Répondez ici"
     private void Supprimer() {
         TextView textView_reponse = findViewById(R.id.textView_reponse);
         textView_reponse.setText("Répondez ici");
         reponse=0;
     }
 
+    //Controle la valeur que l'utilisateur saisit pour savoir si celle dépasse 1000
     public void ajouterNombre(int valeur) {
         if (10 * reponse + valeur > borne_haute) {
             Toast.makeText(this, "Valeur trop grande", Toast.LENGTH_LONG).show();
@@ -85,6 +89,7 @@ public class CalculateActivity extends AppCompatActivity {
         EcrireReponse();
     }
 
+    //Permet d'écrire le nombre que l'utilisateur entre
     private void EcrireReponse() {
         String texteAfficher = "";
         TextView textViewReponse = findViewById(R.id.textView_reponse);
@@ -92,23 +97,26 @@ public class CalculateActivity extends AppCompatActivity {
         textViewReponse.setText(texteAfficher);
     }
 
+    //Créer un nouveau premier élément pour le prochain calcul
     public Integer nvpremierElement() {
         premierElement = premierElement = new Random().nextInt(11);
         return premierElement;
 
     }
 
+    //Créer un nouveau deuxieme élément pour le prochain calcul
     public Integer nvdeuxiemeElement() {
         deuxiemeElement = deuxiemeElement = new Random().nextInt(11);
         return deuxiemeElement;
 
     }
 
-
+    //Afficher un calcul de nombre aléatoire entre 0 et 10
     public Integer AfficherCalcul(){
         this.symboleAfficher = new Random().nextInt(3);
         String symbole = "";
 
+        //Permet de savoir de quelle opération va être ce calcul
         switch(symboleAfficher) {
 
             case 0:
@@ -129,6 +137,7 @@ public class CalculateActivity extends AppCompatActivity {
         return symboleAfficher;
     }
 
+    //Vérifie la réponse de l'utilisateur dès qu'il appuye sur le bouton valider et prend symboleAfficher afin de savoir l'opérateur du calcul
     private void verifReponse(Integer symboleAfficher) {
         TextView textView_reponse = findViewById(R.id.textView_reponse);
         String reponse = textView_reponse.getText().toString();
@@ -136,6 +145,7 @@ public class CalculateActivity extends AppCompatActivity {
 
 
         switch(symboleAfficher) {
+            //Si symboleAfficher est à 0 alors le calcul est une addition
             case 0:
                 if(reponseEnInt == (premierElement + deuxiemeElement)){
                     Toast.makeText(getApplicationContext(),"Bravo !!",Toast.LENGTH_LONG).show();
@@ -151,6 +161,7 @@ public class CalculateActivity extends AppCompatActivity {
                 }
                 break;
 
+            //Si symboleAfficher est à 1 alors le calcul est une soustraction
             case 1:
                 if(reponseEnInt == (premierElement-deuxiemeElement)){
                     Toast.makeText(getApplicationContext(),"Bravo !!",Toast.LENGTH_LONG).show();
@@ -166,6 +177,7 @@ public class CalculateActivity extends AppCompatActivity {
                 }
                 break;
 
+            //Si symboleAfficher est à 2 alors le calcul est une multiplication
             case 2:
                 if(reponseEnInt == (premierElement*deuxiemeElement)){
                     Toast.makeText(getApplicationContext(),"Bravo !!",Toast.LENGTH_LONG).show();
@@ -184,6 +196,7 @@ public class CalculateActivity extends AppCompatActivity {
 
     }
 
+    //Réduit de 1 le nombre de vie de l'utilisateur et si le nombre de vie est 0 alors redirige vers l'écran d'acceuil
     public void Vieperdu(){
         MenuItem vie = menu.findItem(R.id.life_count);
         nbvie--;
@@ -195,6 +208,7 @@ public class CalculateActivity extends AppCompatActivity {
         }
     }
 
+    //Ajoute 1 à chaque fois que l'utilisateur a bon au calcul
     public void Score(){
         MenuItem score = menu.findItem(R.id.score_menu_count);
         nbscore++;
