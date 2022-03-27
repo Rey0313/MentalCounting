@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="question">Question :</string>
+    <string name="submit">Valider</string>
+    <string name="Your_answer">Répondez ici</string>
+    <string name="number_operation">Nombre d\'opérations : XX</string>
+    <string name="percentage_success">Pourcentage de réussite : XXX%</string>
+    <string name="last_operation">Dernière opération : 1 + 1 = 2</string>
+    <string name="previous">Précédent</string>
+    <string name="score">Score</string>
+    <string name="delete">Supprimer</string>
+    <string name="back">Retour</string>
+    <string name="Play">Jouer</string>
+    <string name="A_propos">A propos</string>
+    <string name="Vie">Vie</string>
+</resources>

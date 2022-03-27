@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name" translatable="false">Calcul mental</string>
+    <string name="question">Question :</string>
+    <string name="submit">Submit</string>
+    <string name="Your_answer" translatable="false">Your answer</string>
+    <string name="number_operation">Number of operations : XX</string>
+    <string name="percentage_success">Percentage of success : XXX%</string>
+    <string name="last_operation">Last operation : 1 + 1 = 2</string>
+    <string name="previous">Previous</string>
+    <string name="score">Score</string>
+    <string name="delete">Delete</string>
+    <string name="back">Back</string>
+    <string name="Play">Play</string>
+    <string name="A_propos">About us</string>
+    <string name="Vie">Life</string>
+</resources>
